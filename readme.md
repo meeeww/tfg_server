@@ -1,1 +1,1 @@
-Hey
+mvn spring-boot:run
