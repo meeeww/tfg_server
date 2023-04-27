@@ -1,7 +1,8 @@
 package com.example.PruebaCRUD.Controller;
 
 import com.example.PruebaCRUD.Entity.Persona;
-import com.example.PruebaCRUD.Service.PersonaServiceIMPL.PSIMP;
+import com.example.PruebaCRUD.Entity.Producto;
+import com.example.PruebaCRUD.Service.ServiceIMPL.PSIMP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,6 +50,13 @@ public class Controlador {
     public ResponseEntity<?> EliminarPersonas(@PathVariable int id){
         this.impl.EliminarPersona(id);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping
+    @RequestMapping(value = "ConsultarProductos", method = RequestMethod.GET)
+    public ResponseEntity<?> ConsultarProductos(){
+        List<Producto> listaProducto = this.impl.ConsultarProducto();
+        return ResponseEntity.ok(listaProducto);
     }
 
 }
