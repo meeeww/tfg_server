@@ -15,6 +15,7 @@ public class PSIMP implements Services {
 
     @Autowired
     private PersonaRepo personaRepo;
+    @Autowired
     private ProductoRepo productoRepo;
 
     @Override
