@@ -1,7 +1,7 @@
 package com.example.PruebaCRUD.Controller;
 
-import com.example.PruebaCRUD.Entity.Persona;
-import com.example.PruebaCRUD.Entity.Producto;
+import com.example.PruebaCRUD.Entity.Usuarios;
+import com.example.PruebaCRUD.Entity.Productos;
 import com.example.PruebaCRUD.Service.ServiceIMPL.PSIMP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,9 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
-@RequestMapping("CRUDRepo")
+@RequestMapping("API")
 public class Controlador {
 
     @Autowired
@@ -20,28 +21,28 @@ public class Controlador {
     @GetMapping
     @RequestMapping(value = "ConsultarPersonas", method = RequestMethod.GET)
     public ResponseEntity<?> ConsultarPersonas(){
-        List<Persona> listaPersona = this.impl.ConsultarPersona();
+        List<Usuarios> listaPersona = this.impl.ConsultarPersona();
         return ResponseEntity.ok(listaPersona);
     }
 
     @PostMapping
     @RequestMapping(value = "CrearPersonas", method = RequestMethod.POST)
-    public ResponseEntity<?> CrearPersonas(@RequestBody Persona persona){
-        Persona PersonaCreada = this.impl.CrearPersona(persona);
+    public ResponseEntity<?> CrearPersonas(@RequestBody Usuarios persona){
+        Usuarios PersonaCreada = this.impl.CrearPersona(persona);
         return ResponseEntity.status(HttpStatus.CREATED).body(PersonaCreada);
     }
 
     @PutMapping
     @RequestMapping(value = "ModificarPersonas", method = RequestMethod.PUT)
-    public ResponseEntity<?> ModificarPersonas(@RequestBody Persona persona){
-        Persona PersonaModificada = this.impl.ModificarPersona(persona);
+    public ResponseEntity<?> ModificarPersonas(@RequestBody Usuarios persona){
+        Usuarios PersonaModificada = this.impl.ModificarPersona(persona);
         return ResponseEntity.status(HttpStatus.CREATED).body(PersonaModificada);
     }
 
     @GetMapping
     @RequestMapping(value = "BuscarPersona/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> BuscarPersona(@PathVariable int id){
-        Persona persona = this.impl.BuscarPersona(id);
+        Usuarios persona = this.impl.BuscarPersona(id);
         return ResponseEntity.ok(persona);
     }
 
@@ -52,10 +53,16 @@ public class Controlador {
         return ResponseEntity.ok().build();
     }
 
+
+    @GetMapping("/raw/personas")
+    public List<Usuarios> conseguirPersonaQuery( @RequestParam(value = "id") Set<Integer> yop){
+        return impl.BuscarPersonaQuery(yop);
+    }
+
     @GetMapping
     @RequestMapping(value = "ConsultarProductos", method = RequestMethod.GET)
     public ResponseEntity<?> ConsultarProductos(){
-        List<Producto> listaProducto = this.impl.ConsultarProducto();
+        List<Productos> listaProducto = this.impl.ConsultarProducto();
         return ResponseEntity.ok(listaProducto);
     }
 
