@@ -8,10 +8,10 @@ public class Caracteristicas {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idCaracteristicas")
+    @Column(name = "id_caracteristicas")
     private int idCaracteristicas;
-    @Column(name = "nombreCaracteristica")
-    private int nombreCaracteristica;
+    @Column(name = "nombre_caracteristica")
+    private String nombreCaracteristica;
 
     public int getId() {
         return idCaracteristicas;
@@ -21,11 +21,11 @@ public class Caracteristicas {
         this.idCaracteristicas = idCaracteristicas;
     }
 
-    public int getNombreCaracteristica() {
+    public String getNombreCaracteristica() {
         return nombreCaracteristica;
     }
 
-    public void setNombreCaracteristica(int nombreCaracteristica) {
+    public void setNombreCaracteristica(String nombreCaracteristica) {
         this.nombreCaracteristica = nombreCaracteristica;
     }
 }
