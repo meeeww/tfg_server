@@ -5,9 +5,12 @@ import com.example.PruebaCRUD.Entity.Caracteristicas;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public interface CaracteristicasRepo extends CrudRepository<Caracteristicas, Integer> {
     //consultar
     String getCaracteristicasQuery = "SELECT * FROM caracteristicas;";
@@ -22,20 +25,32 @@ public interface CaracteristicasRepo extends CrudRepository<Caracteristicas, Int
     List<Caracteristicas> getCaracteristicaPorId(Set<Integer> id);
 
     //crear
-    String crearCaracteristicaQuery = "INSERT INTO `caracteristicas` (`id_caracteristicas`, `nombre_caracteristica`) VALUES (NULL, ?1)";
+    String crearCaracteristicaQuery = "INSERT INTO `caracteristicas` (`id_caracteristicas`, `nombre_caracteristica`, `valor_caracteristica`) VALUES (NULL, ?1, ?2)";
 
+    @Modifying
     @Query(nativeQuery = true, value = crearCaracteristicaQuery)
-    List<Caracteristicas> crearCaracteristica(Set<String> nombre);
+    void crearCaracteristica(String nombre, String valor);
 
     //modificar
-    String modificarCaracteristicaQuery = "UPDATE `caracteristicas` SET `nombre_caracteristica` = ?1 WHERE `caracteristicas`.`id_caracteristicas` = ?2";
-
+    String modificarCaracteristicaQuery = "UPDATE `caracteristicas` SET `nombre_caracteristica` = ?2, `valor_caracteristica` = ?3 WHERE `caracteristicas`.`id_caracteristicas` = ?1";
+    String modificarCaracteristicaNombreQuery = "UPDATE `caracteristicas` SET `nombre_caracteristica` = ?2 WHERE `caracteristicas`.`id_caracteristicas` = ?1";
+    String modificarCaracteristicaValorQuery = "UPDATE `caracteristicas` SET `valor_caracteristica` = ?2 WHERE `caracteristicas`.`id_caracteristicas` = ?1";
+    @Modifying
     @Query(nativeQuery = true, value = modificarCaracteristicaQuery)
-    List<Caracteristicas> modificarCaracteristicaPorId(Set<Integer> id, Set<String> nombre);
+    void modificarCaracteristicaPorId(Integer id, String nombre, String valor);
+
+    @Modifying
+    @Query(nativeQuery = true, value = modificarCaracteristicaNombreQuery)
+    void modificarCaracteristicaNombrePorId(Integer id, String nombre);
+
+    @Modifying
+    @Query(nativeQuery = true, value = modificarCaracteristicaValorQuery)
+    void modificarCaracteristicaValorPorId(Integer id, String valor);
 
     //borrar
     String borrarCaracteristicaQuery = "DELETE FROM caracteristicas WHERE id_caracteristicas = ?1";
 
+    @Modifying
     @Query(nativeQuery = true, value = borrarCaracteristicaQuery)
-    List<Caracteristicas> eliminarCaracteristicaPorId(Set<Integer> id);
+    void eliminarCaracteristicaPorId(Integer id);
 }

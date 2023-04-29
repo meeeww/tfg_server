@@ -25,19 +25,24 @@ public class PSIMP {
         return listaCaracteristicas;
     }
     
-    public List<Caracteristicas> CrearCaracteristica(Set<String> nombre) {
-        List<Caracteristicas> listaCaracteristicas = caracteristicasRepo.crearCaracteristica(nombre);
-        return listaCaracteristicas;
+    public void CrearCaracteristica(String nombre, String valor) {
+        caracteristicasRepo.crearCaracteristica(nombre, valor);
     }
 
-    public List<Caracteristicas> ModificarCaracteristica(Set<Integer> id, Set<String> nombre) {
-        List<Caracteristicas> listaCaracteristicas = caracteristicasRepo.modificarCaracteristicaPorId(id, nombre);
-        return listaCaracteristicas;
+    public void ModificarCaracteristica(Integer id, String nombre, String valor) {
+        caracteristicasRepo.modificarCaracteristicaPorId(id, nombre, valor);
     }
 
-    public List<Caracteristicas> EliminarCaracteristica(Set<Integer> id) {
-        List<Caracteristicas> listaCaracteristicas = caracteristicasRepo.eliminarCaracteristicaPorId(id);
-        return listaCaracteristicas;
+    public void ModificarCaracteristicaNombre(Integer id, String nombre) {
+        caracteristicasRepo.modificarCaracteristicaNombrePorId(id, nombre);
+    }
+
+    public void ModificarCaracteristicaValor(Integer id, String valor) {
+        caracteristicasRepo.modificarCaracteristicaValorPorId(id, valor);
+    }
+
+    public void EliminarCaracteristica(Integer id) {
+        caracteristicasRepo.eliminarCaracteristicaPorId(id);
     }
 
     //productos
