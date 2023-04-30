@@ -1,8 +1,7 @@
-package com.example.PruebaCRUD.Controller;
+package com.example.demo.Controller;
 
-import com.example.PruebaCRUD.Entity.*;
-import com.example.PruebaCRUD.Service.ServiceIMPL.PSIMP;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.example.demo.Entity.*;
+import com.example.demo.Service.ServiceIMPL.PSIMP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

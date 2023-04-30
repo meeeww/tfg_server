@@ -1,4 +1,4 @@
-package com.example.PruebaCRUD.Entity;
+package com.example.demo.Entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -9,15 +9,15 @@ public class Caracteristicas {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_caracteristicas")
-    @JsonProperty("id_caracteristicas")
+    @Column(name = "id_caracteristica")
+    @JsonProperty("id_caracteristica")
     private int id_caracteristicas;
     @Column(name = "nombre_caracteristica")
-    @JsonProperty("nombre_caracteristicas")
+    @JsonProperty("nombre_caracteristica")
     private String nombre_caracteristica;
 
     @Column(name = "valor_caracteristica")
-    @JsonProperty("valor_caracteristicas")
+    @JsonProperty("valor_caracteristica")
     private String valor_caracteristica;
 
     public Caracteristicas(){}

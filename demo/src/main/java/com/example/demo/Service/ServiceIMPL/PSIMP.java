@@ -1,7 +1,7 @@
-package com.example.PruebaCRUD.Service.ServiceIMPL;
+package com.example.demo.Service.ServiceIMPL;
 
-import com.example.PruebaCRUD.Entity.*;
-import com.example.PruebaCRUD.Respository.*;
+import com.example.demo.Entity.*;
+import com.example.demo.Respository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
