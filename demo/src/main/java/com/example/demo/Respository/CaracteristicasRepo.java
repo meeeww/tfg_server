@@ -4,12 +4,10 @@ import com.example.demo.Entity.Caracteristicas;
 
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Stream;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional

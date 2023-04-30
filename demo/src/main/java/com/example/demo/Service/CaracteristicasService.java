@@ -1,4 +1,4 @@
-package com.example.demo.Service.ServiceIMPL;
+package com.example.demo.Service;
 
 import com.example.demo.Entity.*;
 import com.example.demo.Respository.*;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 @Service
-public class PSIMP {
+public class CaracteristicasService {
 
     @Autowired
     private CaracteristicasRepo caracteristicasRepo;

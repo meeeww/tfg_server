@@ -1,7 +1,8 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Entity.*;
-import com.example.demo.Service.ServiceIMPL.PSIMP;
+import com.example.demo.Service.CaracteristicasService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +14,7 @@ import java.util.Set;
 public class Controlador {
 
     @Autowired
-    private PSIMP impl;
+    private CaracteristicasService impl;
 
     //-----------------------------------------CARACTERISTICAS-----------------------------------------\\
     @GetMapping("/caracteristicas/consultar")
