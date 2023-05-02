@@ -13,6 +13,8 @@ public class CaracteristicasService {
 
     @Autowired
     private CaracteristicasRepo caracteristicasRepo;
+    @Autowired
+    private ProductosRepo productosRepo;
 
     //-----------------------------------------CARACTERISTICAS-----------------------------------------\\
     public List<Caracteristicas> ConsultarCaracteristicas() {
@@ -46,6 +48,7 @@ public class CaracteristicasService {
     }
 
     //productos
+    
 
     
 }
