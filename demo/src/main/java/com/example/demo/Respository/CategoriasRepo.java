@@ -19,13 +19,13 @@ public interface CategoriasRepo extends CrudRepository<Categorias, Integer> {
     List<Categorias> getCategorias();
 
     //buscar
-    String getCategoriaQuery = "SELECT * FROM categoria WHERE id_categoria = :id";
+    String getCategoriaQuery = "SELECT * FROM categorias WHERE id_categoria = :id";
 
     @Query(nativeQuery = true, value = getCategoriaQuery)
     List<Categorias> getCategoriaPorId(Set<Integer> id);
 
     //crear
-    String crearCategoriaQuery = "INSERT INTO categoria (nombre_categoria) VALUES (:nombre)";
+    String crearCategoriaQuery = "INSERT INTO categorias (nombre_categoria) VALUES (:nombre)";
 
     @Modifying
     @Query(nativeQuery = true, value = crearCategoriaQuery)
