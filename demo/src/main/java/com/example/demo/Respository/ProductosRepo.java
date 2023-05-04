@@ -32,14 +32,14 @@ public interface ProductosRepo extends CrudRepository<Productos, Integer> {
     void crearProducto(String nombre, String descripcion, String foto, double coste, int stock, int categoria, int caracteristica);
 
     //modificar
-    String modificarProductoQuery = "UPDATE productos SET nombre_producto = :nombre, descripcion_producto = :descripcion, foto_producto = :foto, coste_base = :coste, stock = :stock, categoria = :categoria, caracteristica = :caracteristica WHERE productos.id_producto = :id";
+    String modificarProductoQuery = "UPDATE productos SET nombre_producto = :nombre, descripcion_producto = :descripcion, foto_producto = :foto, coste_base = :coste, stock = :stock, id_categoria = :categoria, id_caracteristica = :caracteristica WHERE productos.id_producto = :id";
     String modificarProductoNombreQuery = "UPDATE productos SET nombre_producto = :nombre WHERE productos.id_producto = :id";
     String modificarProductoDescripcionQuery = "UPDATE productos SET descripcion_producto = :descripcion WHERE productos.id_producto = :id";
     String modificarProductoFotoQuery = "UPDATE productos SET foto_producto = :foto WHERE productos.id_producto = :id";
     String modificarProductoCosteQuery = "UPDATE productos SET coste_base = :coste WHERE productos.id_producto = :id";
     String modificarProductoStockQuery = "UPDATE productos SET stock = :stock WHERE productos.id_producto = :id";
-    String modificarProductoCategoriaQuery = "UPDATE productos SET categoria = :categoria WHERE productos.id_producto = :id";
-    String modificarProductoCaracteristicaQuery = "UPDATE productos SET caracteristica = :caracteristica WHERE productos.id_producto = :id";
+    String modificarProductoCategoriaQuery = "UPDATE productos SET id_categoria = :categoria WHERE productos.id_producto = :id";
+    String modificarProductoCaracteristicaQuery = "UPDATE productos SET id_caracteristica = :caracteristica WHERE productos.id_producto = :id";
 
     @Modifying
     @Query(nativeQuery = true, value = modificarProductoQuery)

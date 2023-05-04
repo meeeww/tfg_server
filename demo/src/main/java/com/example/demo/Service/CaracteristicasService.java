@@ -13,8 +13,6 @@ public class CaracteristicasService {
 
     @Autowired
     private CaracteristicasRepo caracteristicasRepo;
-    @Autowired
-    private ProductosRepo productosRepo;
 
     //-----------------------------------------CARACTERISTICAS-----------------------------------------\\
     public List<Caracteristicas> ConsultarCaracteristicas() {
@@ -46,9 +44,4 @@ public class CaracteristicasService {
     public void EliminarCaracteristica(Integer id) {
         caracteristicasRepo.eliminarCaracteristicaPorId(id);
     }
-
-    //productos
-    
-
-    
 }
