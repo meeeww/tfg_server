@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("API")
@@ -16,7 +15,7 @@ public class ControladorSesiones {
     @Autowired
     private SesionesService impl;
 
-    //-----------------------------------------PRODUCTOS-----------------------------------------\\
+    //-----------------------------------------sesiones-----------------------------------------\\
 
     @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/sesiones/consultar")
@@ -43,7 +42,7 @@ public class ControladorSesiones {
     }
 
     @CrossOrigin(origins = "http://localhost:5173")
-    @DeleteMapping("/productos/eliminar")
+    @DeleteMapping("/sesiones/eliminar")
     public void eliminarSesionQuery( @RequestBody Sesiones sesion){
         impl.EliminarSesion(sesion.getToken());
     }
