@@ -25,6 +25,11 @@ public class UsuariosService {
         List<Usuarios> listaUsuario = usuariosRepo.getUsuarioPorId(id);
         return listaUsuario;
     }
+
+    public List<Usuarios> BuscarUsuarioCorreo(String correo) {
+        List<Usuarios> listaUsuario = usuariosRepo.getUsuarioPorCorreo(correo);
+        return listaUsuario;
+    }
     
     public void CrearUsuario(String nombre, String apellido, String correo, String contra, int pedidos, Date fecha, String direccion,String apartamento, String edificio, String opciones, int permisos, int telefono) {
         usuariosRepo.crearUsuario(nombre, apellido, correo, contra, pedidos, fecha, direccion, apartamento, edificio, opciones, permisos, telefono);

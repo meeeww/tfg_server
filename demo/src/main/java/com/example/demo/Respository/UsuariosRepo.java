@@ -21,9 +21,13 @@ public interface UsuariosRepo extends CrudRepository<Usuarios, Integer> {
 
     //buscar
     String getUsuarioQuery = "SELECT * FROM usuarios WHERE id_usuario = :id";
+    String getUsuarioCorreoQuery = "SELECT * FROM usuarios WHERE correo_usuario = :correo";
 
     @Query(nativeQuery = true, value = getUsuarioQuery)
     List<Usuarios> getUsuarioPorId(Set<Integer> id);
+
+    @Query(nativeQuery = true, value = getUsuarioCorreoQuery)
+    List<Usuarios> getUsuarioPorCorreo(String correo);
 
     //crear
     String crearUsuarioQuery = "INSERT INTO usuarios (nombre_usuario, apellido_usuario, correo_usuario, contra_usuario, numero_pedidos, fecha_registro, direccion, apartamento, nombre_edificio, opciones_entrega, permisos, telefono_usuario) VALUES (:nombre, :apellido, :correo, :contra, :pedidos, :fecha, :direccion, :apartamento, :edificio, :opciones, :permisos, :telefono)";

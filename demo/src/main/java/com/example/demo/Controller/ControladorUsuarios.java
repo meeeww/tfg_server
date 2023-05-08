@@ -30,6 +30,12 @@ public class ControladorUsuarios {
     }
 
     @CrossOrigin(origins = "http://localhost:5173")
+    @GetMapping("/usuarios/buscar/login")
+    public List<Usuarios> buscarUsuarioCorreoQuery( @RequestParam(value = "correo") String correo){
+        return impl.BuscarUsuarioCorreo(correo);
+    }
+
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/usuarios/crear")
     public void crearUsuarioQuery(@RequestBody Usuarios usuario){
         impl.CrearUsuario(usuario.getNombre_usuario(), usuario.getApellido_usuario(), usuario.getCorreo_usuario(), usuario.getContra_usuario(), usuario.getNumero_pedidos(), usuario.getFecha_registro(), usuario.getDireccion(), usuario.getApartamento(), usuario.getNombre_edificio(), usuario.getOpciones_entrega(), usuario.getPermisos(), usuario.getTelefono_usuario());
