@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface CategoriasRepo extends CrudRepository<Categorias, Integer> {
     //consultar
-    String getCategoriasQuery = "SELECT * FROM categorias";
+    String getCategoriasQuery = "SELECT * FROM categorias ORDER BY nombre_categoria ASC";
 
     @Query(nativeQuery = true, value = getCategoriasQuery)
     List<Categorias> getCategorias();
