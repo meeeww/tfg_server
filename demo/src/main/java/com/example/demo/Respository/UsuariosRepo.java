@@ -30,11 +30,11 @@ public interface UsuariosRepo extends CrudRepository<Usuarios, Integer> {
     List<Usuarios> getUsuarioPorCorreo(String correo);
 
     //crear
-    String crearUsuarioQuery = "INSERT INTO usuarios (nombre_usuario, apellido_usuario, correo_usuario, contra_usuario, numero_pedidos, fecha_registro, direccion, apartamento, nombre_edificio, opciones_entrega, permisos, telefono_usuario) VALUES (:nombre, :apellido, :correo, :contra, :pedidos, :fecha, :direccion, :apartamento, :edificio, :opciones, :permisos, :telefono)";
+    String crearUsuarioQuery = "INSERT INTO usuarios VALUES (:nombre, :apellido, :correo, :contra, :pedidos, :fecha, :direccion, :apartamento, :edificio, :opciones, :permisos, :telefono, :tarjeta, :cvv, :caducidad)";
 
     @Modifying
     @Query(nativeQuery = true, value = crearUsuarioQuery)
-    void crearUsuario(String nombre, String apellido, String correo, String contra, int pedidos, Date fecha, String direccion,String apartamento, String edificio, String opciones, int permisos, int telefono);
+    void crearUsuario(String nombre, String apellido, String correo, String contra, int pedidos, Date fecha, String direccion,String apartamento, String edificio, String opciones, int permisos, int telefono, String tarjeta, String cvv, String caducidad);
 
     //modificar
     String modificarUsuarioNombreQuery = "UPDATE usuarios SET nombre_usuario = :nombre WHERE usuarios.id_usuario = :id";
@@ -49,6 +49,9 @@ public interface UsuariosRepo extends CrudRepository<Usuarios, Integer> {
     String modificarUsuarioOpcionesEntregaQuery = "UPDATE usuarios SET opciones_entrega = :opciones WHERE usuarios.id_usuario = :id";
     String modificarUsuarioPermisosQuery = "UPDATE usuarios SET permisos = :permisos WHERE usuarios.id_usuario = :id";
     String modificarUsuarioTelefonoQuery = "UPDATE usuarios SET telefono_usuario = :telefono WHERE usuarios.id_usuario = :id";
+    String modificarUsuarioTarjetaQuery = "UPDATE usuarios SET numero_tarjeta = :tarjeta WHERE usuarios.id_usuario = :id";
+    String modificarUsuarioCVVQuery = "UPDATE usuarios SET cvv = :cvv WHERE usuarios.id_usuario = :id";
+    String modificarUsuarioCaducidadQuery = "UPDATE usuarios SET mes_caducidad = :caducidad WHERE usuarios.id_usuario = :id";
 
     @Modifying
     @Query(nativeQuery = true, value = modificarUsuarioNombreQuery)
@@ -97,6 +100,18 @@ public interface UsuariosRepo extends CrudRepository<Usuarios, Integer> {
     @Modifying
     @Query(nativeQuery = true, value = modificarUsuarioTelefonoQuery)
     void modificarUsuarioTelefonoPorId(Integer id, int telefono);
+
+    @Modifying
+    @Query(nativeQuery = true, value = modificarUsuarioTarjetaQuery)
+    void modificarUsuarioTarjetaPorId(Integer id, String tarjeta);
+
+    @Modifying
+    @Query(nativeQuery = true, value = modificarUsuarioCVVQuery)
+    void modificarUsuarioCVVPorId(Integer id, String cvv);
+
+    @Modifying
+    @Query(nativeQuery = true, value = modificarUsuarioCaducidadQuery)
+    void modificarUsuarioCaducidadPorId(Integer id, String caducidad);
 
     //borrar
     String borrarUsuarioQuery = "DELETE FROM usuarios WHERE id_usuario = :id";

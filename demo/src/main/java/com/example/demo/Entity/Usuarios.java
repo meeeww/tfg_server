@@ -63,12 +63,24 @@ public class Usuarios {
     @JsonProperty("telefono_usuario")
     private int telefono_usuario;
 
+    @Column(name = "numero_tarjeta")
+    @JsonProperty("numero_tarjeta")
+    private String numero_tarjeta;
+
+    @Column(name = "cvv")
+    @JsonProperty("cvv")
+    private String cvv;
+
+    @Column(name = "mes_caducidad")
+    @JsonProperty("mes_caducidad")
+    private String mes_caducidad;
+
     public Usuarios() {
     }
 
     public Usuarios(int id_usuario, String nombre_usuario, String apellido_usuario, String correo_usuario,
             String contra_usuario, int numero_pedidos, Date fecha_registro, String direccion, String apartamento,
-            String nombre_edificio, String opciones_entrega, int permisos, int telefono_usuario) {
+            String nombre_edificio, String opciones_entrega, int permisos, int telefono_usuario, String numero_tarjeta, String cvv, String mes_caducidad) {
         this.id_usuario = id_usuario;
         this.nombre_usuario = nombre_usuario;
         this.apellido_usuario = apellido_usuario;
@@ -82,6 +94,9 @@ public class Usuarios {
         this.opciones_entrega = opciones_entrega;
         this.permisos = permisos;
         this.telefono_usuario = telefono_usuario;
+        this.numero_tarjeta = numero_tarjeta;
+        this.cvv = cvv;
+        this.mes_caducidad = mes_caducidad;
     }
 
     public int getId_usuario() {
@@ -186,6 +201,30 @@ public class Usuarios {
 
     public void setTelefono_usuario(int telefono_usuario) {
         this.telefono_usuario = telefono_usuario;
+    }
+
+    public String getNumero_tarjeta() {
+        return numero_tarjeta;
+    }
+
+    public void setNumero_tarjeta(String numero_tarjeta) {
+        this.numero_tarjeta = numero_tarjeta;
+    }
+
+    public String getCvv() {
+        return cvv;
+    }
+
+    public void setCvv(String cvv) {
+        this.cvv = cvv;
+    }
+
+    public String getMes_caducidad() {
+        return mes_caducidad;
+    }
+
+    public void setMes_caducidad(String mes_caducidad) {
+        this.mes_caducidad = mes_caducidad;
     }
 
     

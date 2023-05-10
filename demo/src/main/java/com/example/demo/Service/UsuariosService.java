@@ -31,8 +31,8 @@ public class UsuariosService {
         return listaUsuario;
     }
     
-    public void CrearUsuario(String nombre, String apellido, String correo, String contra, int pedidos, Date fecha, String direccion,String apartamento, String edificio, String opciones, int permisos, int telefono) {
-        usuariosRepo.crearUsuario(nombre, apellido, correo, contra, pedidos, fecha, direccion, apartamento, edificio, opciones, permisos, telefono);
+    public void CrearUsuario(String nombre, String apellido, String correo, String contra, int pedidos, Date fecha, String direccion,String apartamento, String edificio, String opciones, int permisos, int telefono, String tarjeta, String cvv, String caducidad) {
+        usuariosRepo.crearUsuario(nombre, apellido, correo, contra, pedidos, fecha, direccion, apartamento, edificio, opciones, permisos, telefono, tarjeta, cvv, caducidad);
     }
 
     public void ModificarUsuarioNombre(Integer id, String nombre) {
@@ -81,6 +81,18 @@ public class UsuariosService {
 
     public void ModificarUsuarioTelefono(Integer id, int telefono){
         usuariosRepo.modificarUsuarioTelefonoPorId(id, telefono);
+    }
+
+    public void ModificarUsuarioTarjeta(Integer id, String tarjeta){
+        usuariosRepo.modificarUsuarioTarjetaPorId(id, tarjeta);
+    }
+
+    public void ModificarUsuarioCVV(Integer id, String cvv){
+        usuariosRepo.modificarUsuarioCVVPorId(id, cvv);
+    }
+
+    public void ModificarUsuarioCaducidad(Integer id, String caducidad){
+        usuariosRepo.modificarUsuarioCaducidadPorId(id, caducidad);
     }
 
     public void EliminarUsuario(Integer id) {

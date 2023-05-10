@@ -38,7 +38,7 @@ public class ControladorUsuarios {
     @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/usuarios/crear")
     public void crearUsuarioQuery(@RequestBody Usuarios usuario){
-        impl.CrearUsuario(usuario.getNombre_usuario(), usuario.getApellido_usuario(), usuario.getCorreo_usuario(), usuario.getContra_usuario(), usuario.getNumero_pedidos(), usuario.getFecha_registro(), usuario.getDireccion(), usuario.getApartamento(), usuario.getNombre_edificio(), usuario.getOpciones_entrega(), usuario.getPermisos(), usuario.getTelefono_usuario());
+        impl.CrearUsuario(usuario.getNombre_usuario(), usuario.getApellido_usuario(), usuario.getCorreo_usuario(), usuario.getContra_usuario(), usuario.getNumero_pedidos(), usuario.getFecha_registro(), usuario.getDireccion(), usuario.getApartamento(), usuario.getNombre_edificio(), usuario.getOpciones_entrega(), usuario.getPermisos(), usuario.getTelefono_usuario(), usuario.getNumero_tarjeta(), usuario.getCvv(), usuario.getMes_caducidad());
     }
 
     @CrossOrigin(origins = "http://localhost:5173")
@@ -111,6 +111,24 @@ public class ControladorUsuarios {
     @PutMapping("/usuarios/modificar/telefono")
     public void modificarUsuarioTelefonoQuery(@RequestBody Usuarios usuario){
         impl.ModificarUsuarioTelefono(usuario.getId_usuario(), usuario.getTelefono_usuario());
+    }
+
+    @CrossOrigin(origins = "http://localhost:5173")
+    @PutMapping("/usuarios/modificar/tarjeta")
+    public void modificarUsuarioTarjetaQuery(@RequestBody Usuarios usuario){
+        impl.ModificarUsuarioTarjeta(usuario.getId_usuario(), usuario.getNumero_tarjeta());
+    }
+
+    @CrossOrigin(origins = "http://localhost:5173")
+    @PutMapping("/usuarios/modificar/cvv")
+    public void modificarUsuarioCVVQuery(@RequestBody Usuarios usuario){
+        impl.ModificarUsuarioCVV(usuario.getId_usuario(), usuario.getCvv());
+    }
+
+    @CrossOrigin(origins = "http://localhost:5173")
+    @PutMapping("/usuarios/modificar/caducidad")
+    public void modificarUsuarioCaducidadQuery(@RequestBody Usuarios usuario){
+        impl.ModificarUsuarioCaducidad(usuario.getId_usuario(), usuario.getMes_caducidad());
     }
 
     @CrossOrigin(origins = "http://localhost:5173")
