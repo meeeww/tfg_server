@@ -30,7 +30,7 @@ public interface UsuariosRepo extends CrudRepository<Usuarios, Integer> {
     List<Usuarios> getUsuarioPorCorreo(String correo);
 
     //crear
-    String crearUsuarioQuery = "INSERT INTO usuarios VALUES (:nombre, :apellido, :correo, :contra, :pedidos, :fecha, :direccion, :apartamento, :edificio, :opciones, :permisos, :telefono, :tarjeta, :cvv, :caducidad)";
+    String crearUsuarioQuery = "INSERT INTO usuarios (nombre_usuario, apellido_usuario, correo_usuario, contra_usuario, numero_pedidos, fecha_registro, direccion, apartamento, nombre_edificio, opciones_entrega, permisos, telefono_usuario, numero_tarjeta, cvv, mes_caducidad) VALUES (:nombre, :apellido, :correo, :contra, :pedidos, :fecha, :direccion, :apartamento, :edificio, :opciones, :permisos, :telefono, :tarjeta, :cvv, :caducidad)";
 
     @Modifying
     @Query(nativeQuery = true, value = crearUsuarioQuery)
