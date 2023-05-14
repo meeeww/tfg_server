@@ -36,12 +36,16 @@ public class PedidosService {
         return listaPedidos;
     }
     
-    public void CrearPedido(int id, String direccion, int estado) {
-        pedidosRepo.crearPedido(id, direccion, estado);
+    public void CrearPedido(int id, String direccion, int estado, double precio) {
+        pedidosRepo.crearPedido(id, direccion, estado, precio);
     }
 
     public void ModificarPedido(Integer id, int estado) {
         pedidosRepo.modificarPedidoNombrePorId(id, estado);
+    }
+
+    public void ModificarPedidoPrecio(Integer id, double precio) {
+        pedidosRepo.modificarPedidoPrecioPorId(id, precio);
     }
 
     public void EliminarPedido(Integer id) {

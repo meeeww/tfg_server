@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface PedidosRepo extends CrudRepository<Pedidos, Integer> {
     //consultar
-    String getPedidosQuery = "SELECT * FROM pedidos";
+    String getPedidosQuery = "SELECT * FROM pedidos ORDER BY numero_pedido ASC";
 
     @Query(nativeQuery = true, value = getPedidosQuery)
     List<Pedidos> getPedidos();
@@ -33,18 +33,23 @@ public interface PedidosRepo extends CrudRepository<Pedidos, Integer> {
     List<Pedidos> getPedido(Set<Integer> id_usuario, Set<Integer> id_pedido);
 
     //crear
-    String crearPedidoQuery = "INSERT INTO pedidos (id_usuario, direccion_envio, estado) VALUES (:id, :direccion, :estado)";
+    String crearPedidoQuery = "INSERT INTO pedidos (id_usuario, direccion_envio, estado, preciototal) VALUES (:id, :direccion, :estado, :precio)";
 
     @Modifying
     @Query(nativeQuery = true, value = crearPedidoQuery)
-    void crearPedido(int id, String direccion, int estado);
+    void crearPedido(int id, String direccion, int estado, double precio);
 
     //modificar
     String modificarPedidoNombreQuery = "UPDATE pedidos SET estado = :estado WHERE pedidos.numero_pedido = :id";
+    String modificarPedidoPrecioQuery = "UPDATE pedidos SET preciototal = :precio WHERE pedidos.numero_pedido = :id";
 
     @Modifying
     @Query(nativeQuery = true, value = modificarPedidoNombreQuery)
     void modificarPedidoNombrePorId(Integer id, int estado);
+
+    @Modifying
+    @Query(nativeQuery = true, value = modificarPedidoPrecioQuery)
+    void modificarPedidoPrecioPorId(Integer id, double precio);
 
     //borrar
     String borrarPedidoQuery = "DELETE FROM pedidos WHERE numero_pedido = :id";

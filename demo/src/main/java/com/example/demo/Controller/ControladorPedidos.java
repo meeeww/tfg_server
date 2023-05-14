@@ -44,13 +44,19 @@ public class ControladorPedidos {
     @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/pedidos/crear")
     public void crearPedidoQuery(@RequestBody Pedidos pedido){
-        impl.CrearPedido(pedido.getId_usuario(), pedido.getDireccion_envio(), pedido.getEstado());
+        impl.CrearPedido(pedido.getId_usuario(), pedido.getDireccion_envio(), pedido.getEstado(), pedido.getPreciototal());
     }
 
     @CrossOrigin(origins = "http://localhost:5173")
-    @PutMapping("/pedidos/modificar")
+    @PutMapping("/pedidos/modificar/estado")
     public void modificarPedidoQuery( @RequestBody Pedidos pedido){
         impl.ModificarPedido(pedido.getNumero_pedido(), pedido.getEstado());
+    }
+
+    @CrossOrigin(origins = "http://localhost:5173")
+    @PutMapping("/pedidos/modificar/precio")
+    public void modificarPedidoPrecioQuery( @RequestBody Pedidos pedido){
+        impl.ModificarPedidoPrecio(pedido.getNumero_pedido(), pedido.getPreciototal());
     }
 
     @CrossOrigin(origins = "http://localhost:5173")
