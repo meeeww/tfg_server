@@ -58,4 +58,10 @@ public class ControladorInfo {
     public void eliminarPedidoQuery( @RequestBody Info info){
         impl.EliminarInfoPedido(info.getNumero_pedido(), info.getId_producto());
     }
+
+    @CrossOrigin(origins = "http://localhost:5173")
+    @DeleteMapping("/infopedidos/eliminar/numero")
+    public void eliminarPedidoPorNumeroQuery( @RequestBody Info info){
+        impl.EliminarInfoPedidoPorNumero(info.getNumero_pedido());
+    }
 }

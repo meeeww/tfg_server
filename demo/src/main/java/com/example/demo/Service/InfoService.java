@@ -48,4 +48,8 @@ public class InfoService {
     public void EliminarInfoPedido(int numero, int id) {
         infoRepo.eliminarPedidoPorId(numero, id);
     }
+
+    public void EliminarInfoPedidoPorNumero(int numero) {
+        infoRepo.eliminarPedidoPorNumero(numero);
+    }
 }

@@ -49,8 +49,13 @@ public interface InfoRepo extends CrudRepository<Info, Integer> {
 
     //borrar
     String borrarPedidoQuery = "DELETE FROM infopedidos WHERE numero_pedido = :numero AND id_producto = :id";
+    String borrarPedidoNumeroQuery = "DELETE FROM infopedidos WHERE numero_pedido = :numero";
 
     @Modifying
     @Query(nativeQuery = true, value = borrarPedidoQuery)
     void eliminarPedidoPorId(int numero, int id);
+
+    @Modifying
+    @Query(nativeQuery = true, value = borrarPedidoNumeroQuery)
+    void eliminarPedidoPorNumero(int numero);
 }

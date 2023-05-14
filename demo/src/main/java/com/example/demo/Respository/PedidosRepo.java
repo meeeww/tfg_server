@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface PedidosRepo extends CrudRepository<Pedidos, Integer> {
     //consultar
-    String getPedidosQuery = "SELECT * FROM pedidos ORDER BY numero_pedido ASC";
+    String getPedidosQuery = "SELECT * FROM pedidos ORDER BY numero_pedido DESC";
 
     @Query(nativeQuery = true, value = getPedidosQuery)
     List<Pedidos> getPedidos();
