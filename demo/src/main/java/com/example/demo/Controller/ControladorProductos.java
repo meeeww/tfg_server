@@ -85,6 +85,12 @@ public class ControladorProductos {
     }
 
     @CrossOrigin(origins = "http://localhost:5173")
+    @PutMapping("/productos/modificar/ventas")
+    public void modificarCaracteristicaVentaQuery( @RequestBody Productos producto){
+        impl.ModificarProductoVenta(producto.getId_producto(), producto.getVentas());
+    }
+
+    @CrossOrigin(origins = "http://localhost:5173")
     @DeleteMapping("/productos/eliminar")
     public void eliminarProductoQuery( @RequestBody Productos producto){
         impl.EliminarProducto(producto.getId_producto());

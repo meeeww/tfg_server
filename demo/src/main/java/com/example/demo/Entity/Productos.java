@@ -41,10 +41,14 @@ public class Productos {
     @JsonProperty("id_caracteristica")
     private int id_caracteristica;
 
+    @Column(name = "ventas")
+    @JsonProperty("ventas")
+    private int ventas;
+
     public Productos(){}
 
     public Productos(int id_producto, String nombre_producto, String descripcion_producto, String foto_producto,
-            float coste_base, int stock, int id_categoria, int id_caracteristica) {
+            float coste_base, int stock, int id_categoria, int id_caracteristica, int ventas) {
         this.id_producto = id_producto;
         this.nombre_producto = nombre_producto;
         this.descripcion_producto = descripcion_producto;
@@ -53,6 +57,7 @@ public class Productos {
         this.stock = stock;
         this.id_categoria = id_categoria;
         this.id_caracteristica = id_caracteristica;
+        this.ventas = ventas;
     }
 
     public int getId_producto() {
@@ -119,5 +124,14 @@ public class Productos {
         this.id_caracteristica = id_caracteristica;
     }
 
+    public int getVentas() {
+        return ventas;
+    }
+
+    public void setVentas(int ventas) {
+        this.ventas = ventas;
+    }
+
     
+
 }

@@ -25,7 +25,7 @@ public interface ProductosRepo extends CrudRepository<Productos, Integer> {
     List<Productos> getProductoPorId(Set<Integer> id);
 
     //crear
-    String crearProductoQuery = "INSERT INTO productos (nombre_producto, descripcion_producto, foto_producto, coste_base, stock, id_categoria, id_caracteristica) VALUES (:nombre, :descripcion, :foto, :coste, :stock, :categoria, :caracteristica)";
+    String crearProductoQuery = "INSERT INTO productos (nombre_producto, descripcion_producto, foto_producto, coste_base, stock, id_categoria, id_caracteristica, ventas) VALUES (:nombre, :descripcion, :foto, :coste, :stock, :categoria, :caracteristica, 0)";
 
     @Modifying
     @Query(nativeQuery = true, value = crearProductoQuery)
@@ -40,6 +40,7 @@ public interface ProductosRepo extends CrudRepository<Productos, Integer> {
     String modificarProductoStockQuery = "UPDATE productos SET stock = :stock WHERE productos.id_producto = :id";
     String modificarProductoCategoriaQuery = "UPDATE productos SET id_categoria = :categoria WHERE productos.id_producto = :id";
     String modificarProductoCaracteristicaQuery = "UPDATE productos SET id_caracteristica = :caracteristica WHERE productos.id_producto = :id";
+    String modificarProductoVentasQuery = "UPDATE productos SET ventas = :ventas WHERE productos.id_producto = :id";
 
     @Modifying
     @Query(nativeQuery = true, value = modificarProductoQuery)
@@ -72,6 +73,10 @@ public interface ProductosRepo extends CrudRepository<Productos, Integer> {
     @Modifying
     @Query(nativeQuery = true, value = modificarProductoCaracteristicaQuery)
     void modificarProductoCaracteristicaPorId(Integer id, int caracteristica);
+
+    @Modifying
+    @Query(nativeQuery = true, value = modificarProductoVentasQuery)
+    void modificarProductoVentaPorId(Integer id, int ventas);
 
     //borrar
     String borrarProductoQuery = "DELETE FROM productos WHERE id_producto = :id";
