@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("API")
+@RequestMapping("API")  
 public class ControladorTrabajos {
     
     @Autowired

@@ -80,7 +80,7 @@ public interface TrabajosRepo extends CrudRepository<Trabajos, Integer> {
     void modificarTrabajoFechaNacimientoPorId(Integer id, Date fecha_nacimiento);
 
     //borrar
-    String borrarTrabajoQuery = "DELETE FROM trabajos WHERE id_trabajo = :id";
+    String borrarTrabajoQuery = "DELETE FROM trabajos WHERE id_usuario = :id";
 
     @Modifying
     @Query(nativeQuery = true, value = borrarTrabajoQuery)
