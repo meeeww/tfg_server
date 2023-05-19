@@ -61,6 +61,10 @@ public class ProductosService {
         productosRepo.modificarProductoCaracteristicaPorId(id, caracteristica);
     }
 
+    public void ModificarProductoVenta(Integer id, int ventas){
+        productosRepo.modificarProductoVentaPorId(id, ventas);
+    }
+
     public void EliminarProducto(Integer id) {
         productosRepo.eliminarProductoPorId(id);
     }
