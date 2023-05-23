@@ -15,9 +15,13 @@ import org.springframework.transaction.annotation.Transactional;
 public interface UsuariosRepo extends CrudRepository<Usuarios, Integer> {
     //consultar
     String getUsuariosQuery = "SELECT * FROM usuarios";
+    String getEmpleadosQuery = "SELECT * FROM usuarios WHERE permisos IN (1, 2)";
 
     @Query(nativeQuery = true, value = getUsuariosQuery)
     List<Usuarios> getUsuarios();
+
+    @Query(nativeQuery = true, value = getEmpleadosQuery)
+    List<Usuarios> getEmpleados();
 
     //buscar
     String getUsuarioQuery = "SELECT * FROM usuarios WHERE id_usuario = :id";

@@ -24,6 +24,12 @@ public class ControladorUsuarios {
     }
 
     @CrossOrigin(origins = "http://localhost:5173")
+    @GetMapping("/usuarios/consultar/empleados")
+    public List<Usuarios> consultarEmpleadosQuery(){
+        return impl.ConsultarEmpleados();
+    }
+
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/usuarios/buscar")
     public List<Usuarios> buscarUsuarioQuery( @RequestParam(value = "id") Set<Integer> id){
         return impl.BuscarUsuario(id);

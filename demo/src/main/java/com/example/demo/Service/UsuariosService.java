@@ -21,6 +21,11 @@ public class UsuariosService {
         return listaUsuarios;
     }
 
+    public List<Usuarios> ConsultarEmpleados() {
+        List<Usuarios> listaUsuarios = usuariosRepo.getEmpleados();
+        return listaUsuarios;
+    }
+
     public List<Usuarios> BuscarUsuario(Set<Integer> id) {
         List<Usuarios> listaUsuario = usuariosRepo.getUsuarioPorId(id);
         return listaUsuario;
