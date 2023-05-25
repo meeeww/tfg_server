@@ -44,7 +44,7 @@ public class PedidosService {
         pedidosRepo.modificarPedidoNombrePorId(id, estado);
     }
 
-    public void ModificarPedidoPrecio(Integer id, double precio) {
+    public void ModificarPedidoPrecio(Integer id, float precio) {
         pedidosRepo.modificarPedidoPrecioPorId(id, precio);
     }
 

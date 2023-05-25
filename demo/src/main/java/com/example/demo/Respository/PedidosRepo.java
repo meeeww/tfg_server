@@ -49,7 +49,7 @@ public interface PedidosRepo extends CrudRepository<Pedidos, Integer> {
 
     @Modifying
     @Query(nativeQuery = true, value = modificarPedidoPrecioQuery)
-    void modificarPedidoPrecioPorId(Integer id, double precio);
+    void modificarPedidoPrecioPorId(Integer id, float precio);
 
     //borrar
     String borrarPedidoQuery = "DELETE FROM pedidos WHERE numero_pedido = :id";

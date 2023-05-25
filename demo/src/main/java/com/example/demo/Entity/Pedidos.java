@@ -27,11 +27,11 @@ public class Pedidos {
 
     @Column(name = "preciototal")
     @JsonProperty("preciototal")
-    private double preciototal;
+    private float preciototal;
 
     public Pedidos(){}
 
-    public Pedidos(int numero_pedido, int id_usuario, String direccion_envio, int estado, double preciototal) {
+    public Pedidos(int numero_pedido, int id_usuario, String direccion_envio, int estado, float preciototal) {
         this.numero_pedido = numero_pedido;
         this.id_usuario = id_usuario;
         this.direccion_envio = direccion_envio;
@@ -71,11 +71,11 @@ public class Pedidos {
         this.estado = estado;
     }
 
-    public double getPreciototal() {
+    public float getPreciototal() {
         return preciototal;
     }
 
-    public void setPreciototal(double preciototal) {
+    public void setPreciototal(float preciototal) {
         this.preciototal = preciototal;
     }
 
