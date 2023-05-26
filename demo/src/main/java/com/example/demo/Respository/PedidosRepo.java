@@ -42,6 +42,7 @@ public interface PedidosRepo extends CrudRepository<Pedidos, Integer> {
     //modificar
     String modificarPedidoNombreQuery = "UPDATE pedidos SET estado = :estado WHERE pedidos.numero_pedido = :id";
     String modificarPedidoPrecioQuery = "UPDATE pedidos SET preciototal = :precio WHERE pedidos.numero_pedido = :id";
+    String modificarDireccionPrecioQuery = "UPDATE pedidos SET direccion_envio = :direccion WHERE pedidos.id_usuario = :id AND estado = 0";
 
     @Modifying
     @Query(nativeQuery = true, value = modificarPedidoNombreQuery)
@@ -50,6 +51,10 @@ public interface PedidosRepo extends CrudRepository<Pedidos, Integer> {
     @Modifying
     @Query(nativeQuery = true, value = modificarPedidoPrecioQuery)
     void modificarPedidoPrecioPorId(Integer id, float precio);
+
+    @Modifying
+    @Query(nativeQuery = true, value = modificarDireccionPrecioQuery)
+    void modificarPedidoDireccionPorId(Integer id, String direccion);
 
     //borrar
     String borrarPedidoQuery = "DELETE FROM pedidos WHERE numero_pedido = :id";

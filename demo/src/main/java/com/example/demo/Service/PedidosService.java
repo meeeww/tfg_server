@@ -48,6 +48,10 @@ public class PedidosService {
         pedidosRepo.modificarPedidoPrecioPorId(id, precio);
     }
 
+    public void ModificarPedidoDireccion(Integer id, String direccion) {
+        pedidosRepo.modificarPedidoDireccionPorId(id, direccion);
+    }
+
     public void EliminarPedido(Integer id) {
         pedidosRepo.eliminarPedidoPorId(id);
     }

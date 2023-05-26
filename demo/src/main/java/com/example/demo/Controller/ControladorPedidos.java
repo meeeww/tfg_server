@@ -60,6 +60,12 @@ public class ControladorPedidos {
     }
 
     @CrossOrigin(origins = "http://localhost:5173")
+    @PutMapping("/pedidos/modificar/direccion")
+    public void modificarPedidoDireccionQuery( @RequestBody Pedidos pedido){
+        impl.ModificarPedidoDireccion(pedido.getId_usuario(), pedido.getDireccion_envio());
+    }
+
+    @CrossOrigin(origins = "http://localhost:5173")
     @DeleteMapping("/pedidos/eliminar")
     public void eliminarPedidoQuery( @RequestBody Pedidos pedido){
         impl.EliminarPedido(pedido.getNumero_pedido());
